@@ -1,35 +1,39 @@
 package sailing.cruises_log;
 
 import org.springframework.web.bind.annotation.*;
+import sailing.cruises_log.dto.DaysDto;
+import sailing.cruises_log.dto.DaysDtoConverter;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/days")
 public class DaysController {
-  DaysRepository daysRepository;
+  private DaysServiceImplementation daysServiceImpl;
 
-    public DaysController(DaysRepository daysRepository) {
-        this.daysRepository = daysRepository;
+    public DaysController(DaysServiceImplementation daysServiceImpl) {
+        this.daysServiceImpl = daysServiceImpl;
     }
+
     @PostMapping
-    public void addDaySummary(@RequestBody Days daySummary){
-        daysRepository.save((daySummary));
+    public void addDaySummary(@RequestBody DaysDto daysDto){
+        daysServiceImpl.addDay(daysDto);
     }
 
     @GetMapping
-    public Collection<Days> getAllDays(){
-        return daysRepository.findAll();
+    public Collection<DaysDto> getAllDays(){
+        return daysServiceImpl.getAllDays();
     }
 
     @GetMapping(params = "dateEntity")
-    public Collection<Days> getDayEntity(LocalDate dateEntity){
-        return daysRepository.findByDateEntity(dateEntity);
+    public Collection<DaysDto> getDayEntity(String dateEntity){
+        return daysServiceImpl.getDayByDate(dateEntity);
     }
     @GetMapping("/{id}")
-    public Collection<Days> getDaySummaryById(@PathVariable int id){
-        return daysRepository.findById(id);
+    public Optional<DaysDto> getDaySummaryById(@PathVariable int id){
+        return daysServiceImpl.getDayById(id);
     }
 
 }
