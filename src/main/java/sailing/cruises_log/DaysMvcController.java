@@ -9,28 +9,29 @@ import java.util.Collection;
 import java.util.Optional;
 
 
-@RequestMapping("/api/days/")
+@RequestMapping("/api/days/view")
 @Controller
 public class DaysMvcController {
     // private DaysController daysServiceImpl;
-    private DaysRepository daysRepository;
+    private DaysController daysController;
 
-    public DaysMvcController(DaysRepository daysRepository) {
-        this.daysRepository = daysRepository;
+    public DaysMvcController(DaysController daysController) {
+        this.daysController = daysController;
     }
 
-
     @PostMapping
-    public String addDaySummary(Days days){
-        daysRepository.save(days);
+    public String addDaySummary(DaysDto daysDto){
+        daysController.addDaySummary(daysDto);
         return "redirect:/api/days";
     }
 
     @GetMapping
     public String allDaysView(Model indexViewModel){
 
-        indexViewModel.addAttribute("allDays", daysRepository.findAll());
-        return "DaysView";
+        Collection<DaysDto> tab = daysController.getAllDays();
+
+        indexViewModel.addAttribute("alldays", daysController.getAllDays());
+        return "DaysView.html";
     }
 
     @GetMapping("form_date")

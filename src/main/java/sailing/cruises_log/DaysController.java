@@ -22,6 +22,7 @@ public class DaysController {
 
     @GetMapping
     public Collection<DaysDto> getAllDays(){
+
         return daysServiceImpl.getAllDays();
     }
 
