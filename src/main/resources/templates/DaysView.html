@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logbook</title>
+    <link th:href ="@{css/logbook.css}" rel="stylesheet">
 </head>
 <body>
+<div id="header">
+    <h1>Joanna Pazderska</h1>
+    <h2>"Navigare necesse est ..."</h2>
+</div>
+<div id="container">
+    <div id="menu">
+        <ul>
+            <li><a href="#">Lofoty 2018</a></li>
+            <li><a href="#">Grecja 2017</a></li>
+            <li><a href="#">Szkiery i Alandy 2017</a></li>
+            <li><a href="#">Lofoty 2017</a></li>
+            <li><a href="#">Chorwacja 2017</a></li>
+            <li><a href="#">Bałtyk 2015</a></li>
+            <li><a href="#">Grecja 2014</a></li>
+            <li><a href="#">Bałtyk 2014</a></li>
+            <li><a href="#">Jeziorak</a></li>
+            <li><a href="#">Mazury</a></li>
+            <li><a href="#">Zalew Koronowski</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <div id="foto">
+            <img src="/img/jp02.jpg" alt="Asia"/>
+        </div>
+        <div class="naglowek">
+            Born to sail
+        </div>
+        <div class="content">
+            <p>
+            <h1>Pętla w thymeleaf</h1>
+            <h1>Dni</h1>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>NAZWA</th>
+                </tr>
+                <tr th:each="daysDto : ${allDays}">
+                    <td th:text="${daysDto.dateEntity}">dateEntity</td>
+                    <td th:text="${daysDto.position.latitudeDegrees}">latitudeDegrees</td>
+                    <td th:text="${daysDto.position.latitudeMinutes}">latitudeMinutes</td>
+                </tr>
+            </table>	</p>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    &copy; 2018 AP asiap78(at)tlen.pl
+</div>
 
 </body>
 </html>

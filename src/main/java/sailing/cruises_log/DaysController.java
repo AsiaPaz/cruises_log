@@ -2,9 +2,7 @@ package sailing.cruises_log;
 
 import org.springframework.web.bind.annotation.*;
 import sailing.cruises_log.dto.DaysDto;
-import sailing.cruises_log.dto.DaysDtoConverter;
 
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 
