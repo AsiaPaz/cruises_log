@@ -5,15 +5,15 @@ import sailing.cruises_log.SailingEvent;
 import java.time.LocalDate;
 
 public class DaysDto {
-    private LocalDate dateEntity;
+    private String dateEntity;
     private Position startPosition;
-    private float dayLog;
-    private float sailsTime;
-    private float engineTime;
-    private float strongWindHours;
+    private String dayLog;
+    private String sailsTime;
+    private String engineTime;
+    private String strongWindHours;
     private SailingEvent sailingEvent;
 
-    public DaysDto(LocalDate dateEntity, Position startPosition, float dayLog, float sailsTime, float engineTime, float strongWindHours, SailingEvent sailingEvent) {
+    public DaysDto(String dateEntity, Position startPosition, String dayLog, String sailsTime, String engineTime, String strongWindHours, SailingEvent sailingEvent) {
         this.dateEntity = dateEntity;
         this.startPosition = startPosition;
         this.dayLog = dayLog;
@@ -26,11 +26,11 @@ public class DaysDto {
     public DaysDto() {
     }
 
-    public LocalDate getDateEntity() {
+    public String getDateEntity() {
         return dateEntity;
     }
 
-    public void setDateEntity(LocalDate dateEntity) {
+    public void setDateEntity(String dateEntity) {
         this.dateEntity = dateEntity;
     }
 
@@ -42,35 +42,35 @@ public class DaysDto {
         this.startPosition = startPosition;
     }
 
-    public float getDayLog() {
+    public String getDayLog() {
         return dayLog;
     }
 
-    public void setDayLog(float dayLog) {
+    public void setDayLog(String dayLog) {
         this.dayLog = dayLog;
     }
 
-    public float getSailsTime() {
+    public String getSailsTime() {
         return sailsTime;
     }
 
-    public void setSailsTime(float sailsTime) {
+    public void setSailsTime(String sailsTime) {
         this.sailsTime = sailsTime;
     }
 
-    public float getEngineTime() {
+    public String getEngineTime() {
         return engineTime;
     }
 
-    public void setEngineTime(float engineTime) {
+    public void setEngineTime(String engineTime) {
         this.engineTime = engineTime;
     }
 
-    public float getStrongWindHours() {
+    public String getStrongWindHours() {
         return strongWindHours;
     }
 
-    public void setStrongWindHours(float strongWindHours) {
+    public void setStrongWindHours(String strongWindHours) {
         this.strongWindHours = strongWindHours;
     }
 

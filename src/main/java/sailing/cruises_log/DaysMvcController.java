@@ -22,7 +22,7 @@ public class DaysMvcController {
     @PostMapping
     public String addDaySummary(DaysDto daysDto){
         daysController.addDaySummary(daysDto);
-        return "redirect:/api/days";
+        return "redirect:/api/days/view";
     }
 
     @GetMapping

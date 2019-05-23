@@ -170,4 +170,6 @@ public class Days {
     public int hashCode() {
         return Objects.hash(id, dateEntity, latitudeDegrees, latitudeMinutes, latitudeDirection, longitudeDegrees, longitudeMinutes, longitudeDirection, dayLog, sailsTime, engineTime, strongWindHours, sailingEvent);
     }
+
+
 }

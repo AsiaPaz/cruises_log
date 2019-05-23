@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Logbook</title>
-    <link th:href ="@{/static/css/logbook.css}" rel="stylesheet">
+    <link th:href ="@{/css/logbook.css}" rel="stylesheet">
 </head>
 <body>
 <div id="header">
-    <h1>Joanna Pazderska</h1>
+    <h1>Dziennik jachtowy</h1>
     <h2>"Navigare necesse est ..."</h2>
 </div>
 <div id="container">
@@ -30,11 +30,28 @@
     </div>
     <div id="main">
         <div id="foto">
-            <img src="/static/img/jp02.jpg" alt="Asia"/>
+            <img src="/img/wars.jpg" alt="Asia"/>
         </div>
         <div class="naglowek">
-            Born to sail
-        </div>
+            <p>
+            <table>
+            <thead>
+            <tr>
+                <th>REJS</th>
+                <tr>
+                <tbody>
+                <tr th:each="daysDto: ${alldays}">
+                    <td th:text="${daysDto.sailingEvent.route}">route</td>
+                    <td th:text="${daysDto.sailingEvent.yachtName}">yachtName</td>
+                    <td th:text="${daysDto.sailingEvent.startDate}">startDate</td>
+                    <td th:text="${daysDto.sailingEvent.endDate}">route</td>
+                </tr>
+                </tbody>
+
+            </thead>
+            </table>
+            </p>
+	   </div>
         <div class="content">
             <p>
             <h1>Pętla w thymeleaf</h1>
@@ -42,15 +59,26 @@
             <table>
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>NAZWA</th>
+                    <th>Data</th>
+                    <th>Szerokość</th>
+                    <th>Długoość</th>
+                    <th>Stan logu</th>
+                    <th>Godziny na żaglach</th>
+                    <th>Godziny na silniku</th>
+                    <th>Godziny z wiatrem >6°B</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="daysDto: ${alldays}">
-                    <td th:text="${daysDto.sailingEvent.route}">route</td>
-                    <td th:text="${daysDto.startPosition.latitudeDegrees}">latitudeDegrees</td>
-                    <td th:text="${daysDto.startPosition.latitudeMinutes}">latitudeMinutes</td>
+
+                    <td th:text="${daysDto.dateEntity}">dateEntity</td>
+                    <td th:text="${daysDto.startPosition.latitudeDegrees}+'°'+${daysDto.startPosition.latitudeMinutes}+'`'+${daysDto.startPosition.latitudeDirection}">latitudeDegrees</td>
+                    <td th:text="${daysDto.startPosition.longitudeDegrees}+'°'+${daysDto.startPosition.longitudeMinutes}+'`'+${daysDto.startPosition.longitudeDirection}">latitudeDegrees</td>
+                    <td th:text="${daysDto.dayLog}">dayLog</td>
+                    <td th:text="${daysDto.sailsTime}">sailsTime</td>
+                    <td th:text="${daysDto.engineTime}">engineTime</td>
+                    <td th:text="${daysDto.strongWindHours}">strongWindHours</td>
+
 
 
                 </tr>
